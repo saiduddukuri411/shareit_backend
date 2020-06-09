@@ -2,6 +2,7 @@ const { router } = require("./Routes/places-route");
 const path=require('path')
 const mongoose = require("mongoose");
 const fs=require('fs');
+const cors=require('cors');
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -23,7 +24,7 @@ app.use((req, res, next) => {
 
   next();
 });
-
+app.use(cors());
 app.use("/api/places", router);
 app.use("/api/users", usersroute);
 app.use((req, res, next) => {
