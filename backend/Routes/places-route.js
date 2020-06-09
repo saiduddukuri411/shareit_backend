@@ -10,6 +10,17 @@ const {
   updatePlace,
   deletePlace,
 } = require("../Controllers/placesController");
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", '*');
+  // response.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin,X-Requested-With,Content-Type,Accept,Authorization"
+  );
+  res.setHeader("Access-Control-Allow-Methods",'GET,POST,PATCH,DELETE,HEAD');
+
+  next();
+});
 
 router.get("/:placeid", getPlaceById);
 
