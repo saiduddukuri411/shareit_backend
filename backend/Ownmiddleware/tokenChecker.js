@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
     if (!token) {
       return next(new httpError("Authentication Failed", 401));
     }
-    const decodedToken=jwt.verify(token,"sai_dont_share");
+    const decodedToken=jwt.verify(token,process.env.JWT_KEY);
     req.userData={userId:decodedToken.userId};
     next();
   } catch (err) {
