@@ -130,7 +130,7 @@ const updatePlace = async(req, res, next) => {
     ));
   }
   res
-    .status(200)
+    .status(201)
     .json({place:place.toObject({getters:true})});
 };
 
