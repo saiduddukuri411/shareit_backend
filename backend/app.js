@@ -14,7 +14,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use('/uploads/images',express.static(path.join('uploads','images')))
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", 'http://localhost');
+  res.setHeader("Access-Control-Allow-Origin", '*');
   // response.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader(
     "Access-Control-Allow-Headers",
@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 
   next();
 });
-app.use(cors());
+
 app.use("/api/places", router);
 app.use("/api/users", usersroute);
 app.use((req, res, next) => {
