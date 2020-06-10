@@ -23,6 +23,7 @@ app.use((req, res, next) => {
   );
   if (res.method === "OPTIONS") {
     res.setHeader("Access-Control-Allow-Methods", "GET,POST,PATCH,DELETE,HEAD,PUT");
+    throw(new HttpError('sais error',404))
   }
 
   next();
