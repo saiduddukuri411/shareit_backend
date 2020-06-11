@@ -15,16 +15,14 @@ app.use(bodyParser.json());
 app.use("/uploads/images", express.static(path.join("uploads", "images")));
 
 app.use((req, res, next) => {
+  
   res.setHeader("Access-Control-Allow-Origin", "*");
   // response.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader(
     "Access-Control-Allow-Headers",
     "Origin,X-Requested-With,Content-Type,Accept,Authorization"
   );
-  if (res.method === "OPTIONS") {
-    res.setHeader("Access-Control-Allow-Methods", "GET,POST,PATCH,DELETE,HEAD,PUT");
-    
-  }
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,PATCH,DELETE,HEAD,PUT");
 
   next();
 });

@@ -11,7 +11,6 @@ const {
   updatePlace,
   deletePlace,
 } = require("../Controllers/placesController");
-
 router.get("/:placeid", getPlaceById);
 
 router.get("/:userId/places", getPlaceByUserId);

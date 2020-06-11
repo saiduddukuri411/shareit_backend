@@ -100,6 +100,7 @@ const updatePlace = async(req, res, next) => {
       422
     ));
   }
+  
   const placeId = req.params.placeId;
   let place;
  try{
